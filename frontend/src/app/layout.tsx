@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: "Ramzan Welfare International Trust | Charity NGO in Pakistan",
   description:
     "The largest NGO offering free daily meals to underprivileged families in 63+ areas. Working with local communities to support those in need across Pakistan.",
+  icons: {
+    icon: "/images/logo.JPG",
+    apple: "/images/logo.JPG",
+  },
 };
 
 export default function RootLayout({
