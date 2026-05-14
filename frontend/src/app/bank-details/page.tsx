@@ -30,33 +30,14 @@ export default function BankDetailsPage() {
                   {
                     bank: "Allied Bank Limited (ABL)",
                     details: [
-                      { label: "Account Title", value: "Ramzan Welfare International Trust" },
-                      { label: "Account Number", value: "0010-123456-789" },
-                      { label: "IBAN", value: "PK36ABPA00100123456789" },
-                      { label: "Branch Code", value: "0010" },
-                      { label: "Branch", value: "Bahadurabad, Karachi" },
+                      { label: "Account Title", value: "Abu Ubaida Noor Ul Hassan" },
+                      { label: "Account Number", value: " 14020102439907" },
+                      { label: "IBAN", value: "MEZN 0014020102439907" },
+                      { label: "Branch Code", value: "1402" },
+                      { label: "Branch", value: "Mezan Bank ( Settelite Town Branch 1402 )" },
                     ],
                   },
-                  {
-                    bank: "Bank Alfalah Limited",
-                    details: [
-                      { label: "Account Title", value: "Ramzan Welfare International Trust" },
-                      { label: "Account Number", value: "0001-123456-789" },
-                      { label: "IBAN", value: "PK36ALFH000001123456789" },
-                      { label: "Branch Code", value: "0001" },
-                      { label: "Branch", value: "Bahadurabad, Karachi" },
-                    ],
-                  },
-                  {
-                    bank: "Meezan Bank Limited",
-                    details: [
-                      { label: "Account Title", value: "Ramzan Welfare International Trust" },
-                      { label: "Account Number", value: "0001-123456-789" },
-                      { label: "IBAN", value: "PK36MEZN000001123456789" },
-                      { label: "Branch Code", value: "0001" },
-                      { label: "Branch", value: "Bahadurabad, Karachi" },
-                    ],
-                  },
+  
                 ].map((bank) => (
                   <div
                     key={bank.bank}

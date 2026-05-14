@@ -15,9 +15,9 @@ export const siteConfig = {
   description:
     "A professionally managed healthcare organization delivering free, high-quality medical services across Pakistan. With a robust operational infrastructure spanning 50+ medical centers, we provide General OPD, Child Healthcare, Women Health, Vaccination, Laboratory Diagnostics, and Emergency Care to underserved communities — serving over 500,000 patients annually with measurable impact and full financial transparency.",
   email: "info@ramzanwelfare.com",
-  phone: "+92 21 111 729 526",
-  whatsapp: "+923111729526",
-  address: "A-25, Bahadurabad Chowrangi Karachi, Pakistan",
+  phone: "0483222241",
+  whatsapp: "+92 300 600283",
+  address: "Street 4, Yousaf Park Sargogha, Pakistan",
   social: {
     facebook: "https://facebook.com",
     twitter: "https://twitter.com",

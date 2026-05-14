@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/constants";
 
@@ -106,17 +107,16 @@ export default function Footer() {
             {/* Brand */}
             <div className="lg:col-span-4">
               <Link href="/" className="inline-flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-600 shadow-lg shadow-primary/20">
-                  <span className="text-lg font-extrabold text-white">RW</span>
-                </div>
-                <div>
-                  <div className="text-sm font-bold leading-tight text-white">
-                    RAMZAN WELFARE
-                  </div>
-                  <div className="text-[10px] leading-tight text-gray-500">
-                    International Trust
-                  </div>
-                </div>
+                <Image
+                  src="/images/logo.JPG"
+                  alt="Ramzan Welfare International Trust"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-xl object-cover"
+                />
+                <span className="text-sm font-bold leading-tight text-white">
+                  RAMZAN WELFARE
+                </span>
               </Link>
               <p className="mt-5 text-sm leading-relaxed text-gray-400">
                 {siteConfig.description}

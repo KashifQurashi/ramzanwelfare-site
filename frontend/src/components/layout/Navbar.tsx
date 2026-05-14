@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks, siteConfig } from "@/lib/constants";
 
@@ -129,18 +130,18 @@ export default function Navbar() {
         }`}
       >
         <div className="container-custom flex items-center justify-between py-3.5">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-600 shadow-md shadow-primary/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/30">
-              <span className="text-base font-extrabold text-white">RW</span>
-            </div>
-            <div className="hidden flex-col sm:flex">
-              <span className="text-sm font-bold leading-tight tracking-wide text-gray-900">
-                RAMZAN WELFARE
-              </span>
-              <span className="text-[10px] leading-tight tracking-wider text-gray-400">
-                International Trust
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <Image
+              src="/images/logo.JPG"
+              alt="Ramzan Welfare International Trust"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-xl object-cover"
+              priority
+            />
+            <span className="text-sm font-bold leading-tight tracking-wide text-gray-900">
+              RAMZAN WELFARE
+            </span>
           </Link>
 
           {/* Desktop Nav */}
