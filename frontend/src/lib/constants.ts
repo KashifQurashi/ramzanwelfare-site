@@ -14,7 +14,7 @@ export const siteConfig = {
   tagline: "Pakistan's Largest Healthcare Welfare Organization",
   description:
     "A professionally managed healthcare organization delivering free, high-quality medical services across Pakistan. With a robust operational infrastructure spanning 50+ medical centers, we provide General OPD, Child Healthcare, Women Health, Vaccination, Laboratory Diagnostics, and Emergency Care to underserved communities — serving over 500,000 patients annually with measurable impact and full financial transparency.",
-  email: "info@ramzanwelfare.com",
+  email: "trustramzanwelfare@gmail.com",
   phone: "0483222241",
   whatsapp: "+92 300 600283",
   address: "Street 4, Yousaf Park Sargogha, Pakistan",
