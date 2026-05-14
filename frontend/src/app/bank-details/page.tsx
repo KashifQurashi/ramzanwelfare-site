@@ -28,7 +28,7 @@ export default function BankDetailsPage() {
               <div className="mt-8 space-y-6">
                 {[
                   {
-                    bank: "Allied Bank Limited (ABL)",
+                    bank: "meezan bank islamic banking",
                     details: [
                       { label: "Account Title", value: "Abu Ubaida Noor Ul Hassan" },
                       { label: "Account Number", value: " 14020102439907" },
