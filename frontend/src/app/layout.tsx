@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/shared/JsonLd";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ramzanwelfareclinic.com"),
@@ -83,10 +92,16 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
-      <body className="flex min-h-screen flex-col">
+    <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://pixnio.com" />
+        <link rel="dns-prefetch" href="https://pixnio.com" />
+      </head>
+      <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
+        <Analytics />
+        <SpeedInsights />
         <Navbar />
         <main className="flex-1 pt-14 lg:pt-24">{children}</main>
         <Footer />
