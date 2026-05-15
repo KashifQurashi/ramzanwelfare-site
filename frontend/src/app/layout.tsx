@@ -94,6 +94,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <meta name="google-site-verification" content="x3djFdFZbRlzWtcr_veJrDEaByaB2SdyN_1jnu7Dnrc" />
         <link rel="preconnect" href="https://pixnio.com" />
         <link rel="dns-prefetch" href="https://pixnio.com" />
       </head>
