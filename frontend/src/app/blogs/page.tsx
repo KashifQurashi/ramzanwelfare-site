@@ -39,9 +39,9 @@ export default function BlogsPage() {
                     </span>
                     <span>{blog.date}</span>
                   </div>
-                  <h3 className="mt-2 text-base font-bold leading-snug text-gray-900 group-hover:text-primary">
+                  <h2 className="mt-2 text-base font-bold leading-snug text-gray-900 group-hover:text-primary">
                     {blog.title}
-                  </h3>
+                  </h2>
                   <p className="mt-2 text-sm text-gray-600 line-clamp-3">
                     {blog.excerpt}
                   </p>

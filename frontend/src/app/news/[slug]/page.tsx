@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { newsItems } from "@/lib/constants";
 import type { NewsItem } from "@/types";
+import JsonLd from "@/components/shared/JsonLd";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const news = newsItems.find((n) => n.slug === params.slug);
@@ -23,13 +25,13 @@ function RelatedCard({ news }: { news: NewsItem }) {
       href={`/news/${news.slug}`}
       className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:border-primary-100 hover:shadow-lg"
     >
-      <div className="overflow-hidden rounded-xl">
-        <img
+      <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+        <Image
           src={news.image}
           alt={news.title}
-          className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          referrerPolicy="no-referrer"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
       <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-primary">{news.category}</p>
@@ -57,8 +59,23 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
 
   const related = newsItems.filter((n) => n.slug !== news.slug).slice(0, 3);
 
+  const newsSchema = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: news.title,
+    description: news.excerpt,
+    image: news.image,
+    datePublished: news.date,
+    category: news.category,
+    publisher: {
+      "@type": "Organization",
+      name: "Ramzan Welfare International Trust",
+    },
+  };
+
   return (
     <>
+      <JsonLd data={newsSchema} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary py-20 md:py-28">
         <div className="container-custom">
@@ -92,12 +109,13 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
       <section className="py-16 md:py-20">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl">
-            <div className="overflow-hidden rounded-2xl shadow-sm">
-              <img
+            <div className="relative aspect-[2/1] overflow-hidden rounded-2xl shadow-sm">
+              <Image
                 src={news.image}
                 alt={news.title}
-                className="aspect-[2/1] w-full object-cover"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
               />
             </div>
 

@@ -44,7 +44,7 @@ export default function DonateSlugPage({ params }: { params: { slug: string } })
               <p className="mt-4 text-lg text-gray-600">{cause.description}</p>
 
               <div className="mt-8 rounded-lg bg-gray-50 p-6">
-                <h3 className="text-lg font-bold text-gray-900">Quick Donate</h3>
+                <h2 className="text-lg font-bold text-gray-900">Quick Donate</h2>
                 <div className="mt-4 flex gap-3">
                   <input
                     type="text"

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { newsItems } from "@/lib/constants";
 
@@ -30,11 +31,12 @@ export default function NewsPage() {
                 className="group rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-primary-100 hover:shadow-lg overflow-hidden"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
+                  <Image
                     src={news.image}
                     alt={news.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   <div className="absolute bottom-3 left-3">
@@ -45,9 +47,9 @@ export default function NewsPage() {
                 </div>
                 <div className="p-5">
                   <p className="text-xs text-gray-400">{news.date}</p>
-                  <h3 className="mt-2 text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-primary line-clamp-2">
+                  <h2 className="mt-2 text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-primary line-clamp-2">
                     {news.title}
-                  </h3>
+                  </h2>
                   <p className="mt-1.5 text-xs leading-relaxed text-gray-500 line-clamp-2">
                     {news.excerpt}
                   </p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { blogPosts } from "@/lib/constants";
 
@@ -21,13 +22,13 @@ export default function BlogSection() {
               href={`/blogs/${blog.slug}`}
               className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-primary-100 hover:shadow-lg"
             >
-              <div className="relative overflow-hidden">
-                <img
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
                   src={blog.image}
                   alt={blog.title}
-                  className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

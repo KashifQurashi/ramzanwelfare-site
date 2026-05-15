@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { blogPosts } from "@/lib/constants";
 import type { BlogPost } from "@/types";
+import JsonLd from "@/components/shared/JsonLd";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
@@ -23,13 +25,13 @@ function RelatedCard({ post }: { post: BlogPost }) {
       href={`/blogs/${post.slug}`}
       className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:border-primary-100 hover:shadow-lg"
     >
-      <div className="overflow-hidden rounded-xl">
-        <img
+      <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+        <Image
           src={post.image}
           alt={post.title}
-          className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          referrerPolicy="no-referrer"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
       <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-primary">{post.category}</p>
@@ -57,8 +59,26 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
 
   const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Ramzan Welfare International Trust",
+    },
+  };
+
   return (
     <>
+      <JsonLd data={blogSchema} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary py-20 md:py-28">
         <div className="container-custom">
@@ -102,12 +122,13 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
         <div className="container-custom">
           <div className="mx-auto max-w-3xl">
             {/* Featured image */}
-            <div className="overflow-hidden rounded-2xl shadow-sm">
-              <img
+            <div className="relative aspect-[2/1] overflow-hidden rounded-2xl shadow-sm">
+              <Image
                 src={post.image}
                 alt={post.title}
-                className="aspect-[2/1] w-full object-cover"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
               />
             </div>
 

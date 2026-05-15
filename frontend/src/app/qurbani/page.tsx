@@ -30,7 +30,7 @@ export default function QurbaniPage() {
                   <span className="text-6xl">🐄</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900">Cow / Bull Qurbani</h3>
+                  <h2 className="text-xl font-bold text-gray-900">Cow / Bull Qurbani</h2>
                   <p className="mt-2 text-sm text-gray-600">
                     Share in a large animal Qurbani. Each share is priced
                     affordably so you can participate in this blessed act.
@@ -54,7 +54,7 @@ export default function QurbaniPage() {
                   <span className="text-6xl">🐐</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900">Goat / Sheep Qurbani</h3>
+                  <h2 className="text-xl font-bold text-gray-900">Goat / Sheep Qurbani</h2>
                   <p className="mt-2 text-sm text-gray-600">
                     A complete goat or sheep Qurbani. Perfect for individual or
                     family offerings according to Islamic principles.

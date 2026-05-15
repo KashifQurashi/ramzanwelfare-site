@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/shared/JsonLd";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ramzanwelfareclinic.com"),
   title: {
     default: "Ramzan Welfare International Trust | Healthcare NGO in Pakistan",
     template: "%s | Ramzan Welfare International Trust",
@@ -44,9 +46,47 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    name: "Ramzan Welfare International Trust",
+    alternateName: "Ramzan Welfare Clinic",
+    url: "https://ramzanwelfareclinic.com",
+    logo: "https://ramzanwelfareclinic.com/images/logo.JPG",
+    email: "trustramzanwelfare@gmail.com",
+    telephone: "+92 21 111 729 526",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "A-25, Bahadurabad Chowrangi",
+      addressLocality: "Karachi",
+      addressCountry: "PK",
+    },
+    description:
+      "Pakistan's largest healthcare welfare organization delivering free, high-quality medical services across 50+ centers.",
+    medicalSpecialty: "Community Health",
+    areaServed: "PK",
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Ramzan Welfare International Trust",
+    url: "https://ramzanwelfareclinic.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://ramzanwelfareclinic.com/search?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <Navbar />
         <main className="flex-1 pt-14 lg:pt-24">{children}</main>
         <Footer />

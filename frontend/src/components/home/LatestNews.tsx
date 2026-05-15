@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { newsItems } from "@/lib/constants";
 
@@ -25,11 +26,12 @@ export default function LatestNews() {
             className="group lg:col-span-7 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-primary-100 hover:shadow-lg"
           >
             <div className="relative aspect-[16/10] overflow-hidden lg:aspect-[16/11]">
-              <img
+              <Image
                 src={featured.image}
                 alt={featured.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 58vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
               <div className="absolute bottom-3 left-3">
@@ -72,11 +74,12 @@ export default function LatestNews() {
               >
                 <div className="flex flex-col sm:flex-row">
                   <div className="relative aspect-[16/9] sm:aspect-square sm:w-44 shrink-0 overflow-hidden">
-                    <img
+                    <Image
                       src={news.image}
                       alt={news.title}
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="176px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent sm:bg-none" />
                     <div className="absolute bottom-2 left-2 sm:hidden">

@@ -48,9 +48,9 @@ export default function MediaPage() {
                 </div>
                 <div className="p-5">
                   <p className="text-xs text-gray-500">{media.date}</p>
-                  <h3 className="mt-2 text-sm font-bold leading-snug text-gray-900 group-hover:text-primary">
+                  <h2 className="mt-2 text-sm font-bold leading-snug text-gray-900 group-hover:text-primary">
                     {media.title}
-                  </h3>
+                  </h2>
                 </div>
               </a>
             ))}

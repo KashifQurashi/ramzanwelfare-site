@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { initiatives } from "@/lib/constants";
+import JsonLd from "@/components/shared/JsonLd";
 
 const serviceDetails: Record<string, {
   title: string;
@@ -197,8 +198,22 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
     );
   }
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       {/* Hero */}
       <section className="bg-gradient-to-r from-primary-900 to-primary py-20">
         <div className="container-custom text-center text-white">
@@ -220,9 +235,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             <div className="mt-12 grid gap-8 md:grid-cols-2">
               {/* Services Details */}
               <div className="card p-6">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl font-bold text-gray-900">
                   What We Offer
-                </h3>
+                </h2>
                 <ul className="mt-4 space-y-3">
                   {service.details.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -237,9 +252,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
               {/* Benefits */}
               <div className="card p-6">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h2 className="text-xl font-bold text-gray-900">
                   Key Benefits
-                </h3>
+                </h2>
                 <ul className="mt-4 space-y-3">
                   {service.benefits.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -255,9 +270,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
             {/* CTA */}
             <div className="mt-12 rounded-2xl bg-primary-50 p-8 text-center">
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Support {service.title}
-              </h3>
+              </h2>
               <p className="mt-2 text-gray-600">
                 Your donation helps us provide free {service.title.toLowerCase()}{" "}
                 services to those who cannot afford them.
@@ -277,9 +292,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
             {/* FAQs */}
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-2xl font-bold text-gray-900">
                 Frequently Asked Questions
-              </h3>
+              </h2>
               <div className="mt-6 space-y-4">
                 {service.faqs.map((faq, i) => (
                   <details key={i} className="card group">

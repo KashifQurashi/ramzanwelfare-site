@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "saylaniwelfare.com",
       },
+      {
+        protocol: "https",
+        hostname: "pixnio.com",
+      },
     ],
   },
 };
