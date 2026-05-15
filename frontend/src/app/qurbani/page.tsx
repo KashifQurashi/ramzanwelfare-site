@@ -1,4 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Qurbani 2026",
+  description:
+    "Perform your Qurbani 2026 with Ramzan Welfare International Trust. Your sacrifice shares blessings with those in need across Pakistan.",
+};
 
 export default function QurbaniPage() {
   return (

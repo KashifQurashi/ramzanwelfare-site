@@ -1,6 +1,21 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { newsItems } from "@/lib/constants";
 import type { NewsItem } from "@/types";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const news = newsItems.find((n) => n.slug === params.slug);
+  if (!news) return {};
+  return {
+    title: news.title,
+    description: news.excerpt,
+    openGraph: {
+      title: news.title,
+      description: news.excerpt,
+      images: [{ url: news.image, alt: news.title }],
+    },
+  };
+}
 
 function RelatedCard({ news }: { news: NewsItem }) {
   return (

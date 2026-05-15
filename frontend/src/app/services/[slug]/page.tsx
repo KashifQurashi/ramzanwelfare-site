@@ -1,7 +1,5 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { initiatives } from "@/lib/constants";
 
 const serviceDetails: Record<string, {
@@ -171,10 +169,21 @@ const serviceDetails: Record<string, {
   },
 };
 
-export default function ServiceDetailPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const service = serviceDetails[params.slug];
+  if (!service) return {};
+  return {
+    title: `${service.title} Services | Ramzan Welfare International Trust`,
+    description: service.hero,
+    openGraph: {
+      title: `${service.title} | Ramzan Welfare International Trust`,
+      description: service.hero,
+    },
+  };
+}
 
+export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
   const service = serviceDetails[slug];
 
   if (!service) {

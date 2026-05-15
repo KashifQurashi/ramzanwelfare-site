@@ -1,4 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Ramzan Welfare International Trust — a professionally managed healthcare NGO delivering free medical services across 50+ centers in Pakistan since 1999.",
+};
 
 export default function AboutPage() {
   return (

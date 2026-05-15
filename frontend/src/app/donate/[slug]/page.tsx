@@ -1,13 +1,23 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { donationCauses } from "@/lib/constants";
 
-export default function DonateSlugPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const cause = donationCauses.find((c) => c.slug.includes(params.slug));
+  if (!cause) return {};
+  return {
+    title: cause.title,
+    description: cause.description,
+    openGraph: {
+      title: cause.title,
+      description: cause.description,
+      images: [{ url: cause.image, alt: cause.title }],
+    },
+  };
+}
 
+export default function DonateSlugPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
   const cause = donationCauses.find((c) => c.slug.includes(slug));
 
   if (!cause) {

@@ -1,5 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { blogPosts } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description:
+    "Read stories, insights, and updates from Ramzan Welfare International Trust's healthcare initiatives across Pakistan.",
+};
 
 export default function BlogsPage() {
   return (

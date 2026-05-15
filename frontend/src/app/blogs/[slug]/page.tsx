@@ -1,6 +1,21 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { blogPosts } from "@/lib/constants";
 import type { BlogPost } from "@/types";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = blogPosts.find((p) => p.slug === params.slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.image, alt: post.title }],
+    },
+  };
+}
 
 function RelatedCard({ post }: { post: BlogPost }) {
   return (

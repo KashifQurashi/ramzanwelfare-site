@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { siteConfig } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Ramzan Welfare International Trust. Reach us via phone, email, or visit our center in Karachi, Pakistan.",
+};
 
 export default function ContactPage() {
   return (

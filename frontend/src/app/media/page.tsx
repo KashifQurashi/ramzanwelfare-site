@@ -1,5 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { mediaItems } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Media Updates",
+  description:
+    "Watch videos and see media coverage of Ramzan Welfare International Trust's free healthcare services, medical camps, and community programs.",
+};
 
 export default function MediaPage() {
   return (

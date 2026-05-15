@@ -1,4 +1,11 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bank Details",
+  description:
+    "Find Ramzan Welfare International Trust bank account details for direct donations via bank transfer. Support free healthcare services across Pakistan.",
+};
 
 export default function BankDetailsPage() {
   return (

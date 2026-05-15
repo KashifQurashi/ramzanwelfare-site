@@ -1,5 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { newsItems } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Latest News",
+  description:
+    "Stay updated with the latest news and announcements from Ramzan Welfare International Trust — medical camps, expansions, and community impact stories.",
+};
 
 export default function NewsPage() {
   return (
